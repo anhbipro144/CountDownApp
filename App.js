@@ -18,9 +18,6 @@ import {
     Feather,
 } from "@expo/vector-icons";
 
-import moment from "moment";
-import formatTime from "minutes-seconds-milliseconds";
-
 // Vars
 const image = {
     uri: "https://raw.githubusercontent.com/naseemakhtar994/Stopwatch/master/app/src/main/res/drawable/background.png",
@@ -57,9 +54,7 @@ export default function App() {
             myInterval = setInterval(() => {
                 const now = new Date().getTime();
                 const remain = future - now;
-                const hours = Math.floor(
-                    (remain % (24 * 60 * 60 * 1000)) / (1000 * 60 * 60)
-                );
+                const hours = Math.floor(remain / (1000 * 60 * 60));
                 const minutes = Math.floor(
                     (remain % (60 * 60 * 1000)) / (1000 * 60)
                 );
